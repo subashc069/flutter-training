@@ -15,8 +15,14 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Center(
-        //child: Image.network('assets/nature-1.jpg'), for network images
-        child: Image.asset('assets/nature-1.jpg'),
+        child: RaisedButton.icon(
+            onPressed: () {
+              print('You clicked me');
+            },
+            icon: Icon(Icons.email), 
+            label: Text('Mail me'),
+            color: Colors.red,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
