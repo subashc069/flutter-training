@@ -15,14 +15,11 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Center(
-        child: RaisedButton.icon(
+        child: IconButton(
+            icon: Icon(Icons.alternate_email),
             onPressed: () {
-              print('You clicked me');
-            },
-            icon: Icon(Icons.email), 
-            label: Text('Mail me'),
-            color: Colors.red,
-        ),
+              print('You mailed me');
+            }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
