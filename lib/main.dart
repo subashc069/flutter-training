@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -14,16 +15,8 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.red[600],
       ),
       body: Center(
-        child: Text(
-          'Hello Nexians',
-          style: TextStyle(
-            fontFamily: 'Roboto',
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2.0,
-            color: Colors.grey[600],
-          ),
-        ),
+        //child: Image.network('assets/nature-1.jpg'), for network images
+        child: Image.asset('assets/nature-1.jpg'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
