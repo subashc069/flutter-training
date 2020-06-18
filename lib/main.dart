@@ -14,29 +14,36 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text('Click me')
-            ],
+          Expanded(
+            flex: 2,
+            child: Image.asset('assets/nature-1.jpg')
           ),
-          Container(
-            color: Colors.greenAccent,
-            padding: EdgeInsets.all(30.0),
-            child: Text('This'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.greenAccent,
+              padding: EdgeInsets.all(30.0),
+              child: Text('This'),
+            ),
           ),
-          Container(
-            color: Colors.blueAccent,
-            padding: EdgeInsets.all(30.0),
-            child: Text('is the'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.blueAccent,
+              padding: EdgeInsets.all(30.0),
+              child: Text('is the'),
+            ),
           ),
-          Container(
-            color: Colors.redAccent,
-            padding: EdgeInsets.all(30.0),
-            child: Text('This is the beginning'),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.redAccent,
+              padding: EdgeInsets.all(30.0),
+              child: Text('This is the beginning'),
+            ),
           )
         ],
       ),
