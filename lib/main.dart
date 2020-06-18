@@ -14,9 +14,9 @@ class QuoteList extends StatefulWidget {
 class _QuoteListState extends State<QuoteList> {
 
   List<Quote> quotes = [
-    Quote(author: 'subash', text: 'As you sow, so you reap'),
-    Quote(author: 'manish', text: 'Tit for tat'),
-    Quote(author: 'ranu', text: 'Be yourself because everybody else is taken'),
+    Quote(author: 'Plato', text: 'As you sow, so you reap'),
+    Quote(author: 'Oscar Wilde', text: 'Tit for tat'),
+    Quote(author: 'Steve Jobs', text: 'Be yourself because everybody else is taken'),
   ];
 
   @override
@@ -30,7 +30,14 @@ class _QuoteListState extends State<QuoteList> {
         elevation: 0,
       ),
       body: Column(
-        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+        children: quotes.map((quote) => QuoteCard(
+          quote: quote,
+          delete: (){
+            setState(() {
+              quotes.remove(quote);
+            });
+          }
+          )).toList(),
       ),
     );
   }
@@ -38,7 +45,8 @@ class _QuoteListState extends State<QuoteList> {
 
 class QuoteCard extends StatelessWidget {
   final Quote quote;
-  QuoteCard({this.quote});  
+  final Function delete;
+  QuoteCard({this.quote, this.delete});  
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +71,11 @@ class QuoteCard extends StatelessWidget {
                 fontWeight: FontWeight.bold
               ),
             ),
+            SizedBox(height: 10.0),
+            FlatButton.icon(
+              onPressed: delete, 
+              icon: Icon(Icons.delete), 
+              label: Text('Delete'))
           ],
         ),
       ),
