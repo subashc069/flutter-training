@@ -16,10 +16,32 @@ class _QuoteListState extends State<QuoteList> {
   List<Quote> quotes = [
     Quote(author: 'subash', text: 'As you sow, so you reap'),
     Quote(author: 'manish', text: 'Tit for tat'),
-    Quote(author: 'rajnish', text: 'Be yourself because everybody else is taken'),
+    Quote(author: 'ranu', text: 'Be yourself because everybody else is taken'),
   ];
 
-  Widget quoteTemplate(quote){
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      appBar: AppBar(
+        title: Text('Awesome Quotes'),
+        centerTitle: true,
+        backgroundColor: Colors.redAccent,
+        elevation: 0,
+      ),
+      body: Column(
+        children: quotes.map((quote) => QuoteCard(quote: quote)).toList(),
+      ),
+    );
+  }
+}
+
+class QuoteCard extends StatelessWidget {
+  final Quote quote;
+  QuoteCard({this.quote});  
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: Padding(
@@ -43,21 +65,6 @@ class _QuoteListState extends State<QuoteList> {
             ),
           ],
         ),
-      ),
-    );
-  }
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.grey[300],
-      appBar: AppBar(
-        title: Text('Awesome Quotes'),
-        centerTitle: true,
-        backgroundColor: Colors.redAccent,
-        elevation: 0,
-      ),
-      body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
