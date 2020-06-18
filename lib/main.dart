@@ -18,6 +18,34 @@ class _QuoteListState extends State<QuoteList> {
     Quote(author: 'manish', text: 'Tit for tat'),
     Quote(author: 'rajnish', text: 'Be yourself because everybody else is taken'),
   ];
+
+  Widget quoteTemplate(quote){
+    return Card(
+      margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              quote.text,
+              style: TextStyle(
+                color: Colors.grey[600],
+              ),
+            ),
+            SizedBox(height: 6.0),
+            Text(
+              quote.author,
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontWeight: FontWeight.bold
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +57,7 @@ class _QuoteListState extends State<QuoteList> {
         elevation: 0,
       ),
       body: Column(
-        children: quotes.map((q) => Text('${q.author} - ${q.text}', style: TextStyle(color: Colors.red[300]),)).toList(),
+        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
       ),
     );
   }
