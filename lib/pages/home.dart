@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, '/location');
               }, 
-              icon: Icon(Icons.add_location), 
+              icon: Icon(Icons.edit_location), 
               label: Text('Choose a location'))
           ],
         ),
