@@ -4,7 +4,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Text('Date and time')),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            FlatButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, '/location');
+              }, 
+              icon: Icon(Icons.add_location), 
+              label: Text('Choose a location'))
+          ],
+        ),
+      ),
     );
   }
 }
