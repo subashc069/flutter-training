@@ -9,17 +9,28 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-  void getData() async {
-   http.Response response = await http.get('https://jsonplaceholder.typicode.com/todos/1'); 
+  void getTime() async {
+   http.Response response = await http.get('http://worldtimeapi.org/api/timezone/Asia/Kathmandu'); 
 
    Map data = convert.jsonDecode(response.body);
-   print(data);
-   print(data['title']);
+   
+   //saving the required values
+   String datetime = data['datetime'];
+   String offsethour = data['utc_offset'].substring(1,3);
+   String offsetminutes = data['utc_offset'].substring(4,6);
+   //print(datetime);
+   //print(offset);
+
+   //create datetime  object
+   DateTime now = DateTime.parse(datetime);
+   now = now.add(Duration(hours: int.parse(offsethour)));
+   now = now.add(Duration(minutes: int.parse(offsetminutes)));
+   print(now);
   }
   @override
   void initState() {
     super.initState();
-    getData();
+    getTime();
   }
   @override
   Widget build(BuildContext context) {
